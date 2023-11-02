@@ -12,11 +12,6 @@ def rock_paper_scissors#じゃんけんメソッド
     if @user_hand==3
       puts "戦闘を終了します"
       exit
- 
-    elsif @user_hand>3
-      puts "予期せぬ入力がありました。再度入力してください"
-      puts "-----------------"
-      return true
     elsif @user_hand == 0||1||2
       puts "ホイ！"
       puts "---------------"
@@ -38,6 +33,11 @@ def rock_paper_scissors#じゃんけんメソッド
           return look_over_there
   
        end
+     
+    else
+      puts "予期せぬ入力がありました。再度入力してください"
+      puts "-----------------"
+      return true
  
     end
 
@@ -66,16 +66,13 @@ def look_over_there#あっち向いてホイメソッド
           elsif @user_face==@randam_face && @result_janken == "lose"
             puts "あなたの負けです"
           end
-  
-        elsif @user_face >4
-          puts "不正な入力がありました。再度入力してください"
-          return look_over_there
-  
-   
+          
         else
           return true
         end
-  
+    else
+      puts "不正な入力がありました。再度入力してください"
+      retrun look_over_there
     end
 
 end
@@ -83,7 +80,7 @@ end
 #trueで繰り返す
 next_game = true
 
-while next_game do
- next_game = rock_paper_scissors
-end
+  while next_game do
+   next_game = rock_paper_scissors
+  end
 
